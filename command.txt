@@ -1,0 +1,8 @@
+cd [YOUR DIRECTORY HERE ] &&
+python3 -m venv .lco-venv &&
+.lco-venv/bin/python -m pip install certifi &&
+SSL_CERT_FILE="$(.lco-venv/bin/python -m certifi)" \
+  caffeinate -i .lco-venv/bin/python lco_fetch_resume.py fetch \
+  2024-01-01 2025-01-01 --db pilot.sqlite \
+  --authenticated --max-headers-per-day 100
+
